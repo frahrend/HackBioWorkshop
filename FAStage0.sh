@@ -71,7 +71,7 @@ conda install -c bioconda samtools
 #0.2.5c
 conda install -c bioconda fastp
 
-
+echo 'https://github.com/frahrend/HackBioWorkshop'
 
 
 
