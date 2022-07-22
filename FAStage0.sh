@@ -61,3 +61,19 @@ cd FastQ_Data
 wc -l < lane8_DD_P4_TTAGGC_L008_R1.fastq.gz
 #0.2.4b
 wc -l *.fastq.gz | tail -1 && wc -l *.fastq.gz | tail -1 > lineCounter.txt 
+
+#0.2.5
+#I needed first to download anaconda with: brew install anaconda
+#0.2.5a
+conda install -c bioconda seqtk
+#0.2.5b
+conda install -c bioconda samtools
+#0.2.5c
+conda install -c bioconda fastp
+
+
+
+
+
+
+
