@@ -4,10 +4,11 @@
 
 #install packages: 
 
-#conda installation
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-sh Miniconda3-latest-Linux-x86_64.sh 
-conda init
+#My steps to install conda installation: 
+#Here commented out when conda is already installed. 
+#wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+#sh Miniconda3-latest-Linux-x86_64.sh 
+#conda init
 
 #installation of bioinformatics tools
 conda install -c bioconda fastqc
@@ -75,20 +76,19 @@ cat output/chara_flagstat.txt
 
 #3. Qualimap 
 
+cd output/
+
 #Alsen file, sort with samtools
-samtools sort Alsen.bam -o output/alsen_sort.bam 
-mkdir output/Alsen_Qualimap && qualimap bamqc -bam 
-output/alsen_sort.bam --outdir=output/Alsen_Qualimap && cat output/Alsen_Qualimap/raw_data_qualimapReport/coverage_histogram.txt 
+samtools sort Alsen.bam -o alsen_sort.bam && mkdir Alsen_Qualimap && qualimap bamqc -bam alsen_sort.bam --outdir=Alsen_Qualimap && cat Alsen_Qualimap/raw_data_qualimapReport/coverage_histogram.txt 
 
 #Baxter file, sort with samtools
-samtools sort Baxter.bam -o output/baxter_sort.bam 
-mkdir output/Baxter_Qualimap && qualimap bamqc -bam output/baxter_sort.bam --outdir=output/Baxter_Qualimap && cat output/Baxter_Qualimap/raw_data_qualimapReport/coverage_histogram.txt 
+samtools sort Baxter.bam -o baxter_sort.bam && mkdir Baxter_Qualimap && qualimap bamqc -bam baxter_sort.bam --outdir=Baxter_Qualimap && cat Baxter_Qualimap/raw_data_qualimapReport/coverage_histogram.txt 
 
 
 #Chara file, sort with samtools
-samtools sort Chara.bam -o output/chara_sort.bam 
-mkdir output/Chara_Qualimap && qualimap bamqc -bam output/chara_sort.bam --outdir=output/Chara_Qualimap && cat output/Chara_Qualimap/raw_data_qualimapReport/coverage_histogram.txt 
+samtools sort Chara.bam -o chara_sort.bam && mkdir Chara_Qualimap && qualimap bamqc -bam chara_sort.bam --outdir=Chara_Qualimap && cat Chara_Qualimap/raw_data_qualimapReport/coverage_histogram.txt 
 
+cd ..
 
 ls
 cd output/ && ls
